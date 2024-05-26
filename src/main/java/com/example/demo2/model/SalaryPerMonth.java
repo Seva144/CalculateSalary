@@ -1,7 +1,6 @@
 package com.example.demo2.model;
 
 
-
 public class SalaryPerMonth {
 
     private int year;
@@ -13,44 +12,12 @@ public class SalaryPerMonth {
     public SalaryPerMonth() {
     }
 
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public double getHour_income() {
-        return hour_income;
-    }
-
     public void setHour_income(double hour_income) {
         this.hour_income = hour_income;
     }
 
-    public int getWorkdays_months() {
-        return workdays_months;
-    }
-
     public void setWorkdays_months(int workdays_months) {
         this.workdays_months = workdays_months;
-    }
-
-    @Override
-    public String toString() {
-        return "SalaryPerMonth{" +
-                "year=" + year +
-                ", month=" + month +
-                ", salary=" + salary +
-                ", hourIncome=" + hour_income +
-                ", workdaysInMonth=" + workdays_months +
-                '}';
     }
 
     public void setYear(int year) {
@@ -64,5 +31,17 @@ public class SalaryPerMonth {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "SalaryPerMonth{" +
+                "year=" + year +
+                ", month=" + month +
+                ", salary=" + salary +
+                ", hourIncome=" + hour_income +
+                ", workdaysInMonth=" + workdays_months +
+                '}';
+    }
+
 }
 

@@ -4,11 +4,11 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
     <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>com.example.demo2.HelloServlet</servlet-class>
+        <servlet-name>calculate</servlet-name>
+        <servlet-class>com.example.demo2.CalculateSalary</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/hello-servlet</url-pattern>
+        <servlet-name>calculate</servlet-name>
+        <url-pattern>/calculate-salary</url-pattern>
     </servlet-mapping>
 </web-app>

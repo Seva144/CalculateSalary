@@ -8,7 +8,7 @@
 
 <body>
   <h1><%= "Расчет почасовой оплаты" %></h1>
-  <form action="${pageContext.request.contextPath}/hello-servlet" method="post">
+  <form action="${pageContext.request.contextPath}/calculate-salary" method="post">
     <br/>
       <label for="year"> Год : </label>
       <input type="number" name="year" id="year" value="${year}">
@@ -29,12 +29,11 @@
     </select>
     <br/>
       <label for="salary"> Зарплата : </label>
-      <input type="number" name="salary" id="salary" value="${salary}">
+      <input  type="number" name="salary" id="salary" value="${salary}">
     <br/>
-      <input type="submit" name="signup" value="Sign Up">
+      <input type="submit" name="signup" value="Рассчитать" >
     <br/>
   </form>
-  <a href="hello-servlet">Hello Servlet</a>
 </body>
 
 </html>

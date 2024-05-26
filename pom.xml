@@ -16,6 +16,9 @@
     <maven.compiler.source>11</maven.compiler.source>
       <junit.version>5.9.2</junit.version>
       <jakarta.version>5.0.0</jakarta.version>
+      <jackson-core>2.12.1</jackson-core>
+      <gson>2.10.1 </gson>
+
       </properties>
 
   <dependencies>
@@ -41,12 +44,12 @@
       <dependency>
           <groupId>com.google.code.gson</groupId>
           <artifactId>gson</artifactId>
-          <version>2.10.1</version>
+          <version>${gson}</version>
       </dependency>
       <dependency>
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-core</artifactId>
-          <version>2.12.1</version>
+          <version>${jackson-core}</version>
       </dependency>
       <dependency>
           <groupId>com.groupstp.isdayoff</groupId>

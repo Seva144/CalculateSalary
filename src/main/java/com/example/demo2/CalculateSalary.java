@@ -13,16 +13,14 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 
-@WebServlet(name = "helloServlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "calculate")
+public class CalculateSalary extends HttpServlet {
 
-    private String message;
     private SalaryPerMonth salaryPerMonth;
     private IsDayOff isDayOff;
 
     public void init() {
         isDayOff = IsDayOff.Builder().build();
-        message = "Hello World!";
         salaryPerMonth = new SalaryPerMonth();
     }
 
@@ -45,22 +43,17 @@ public class HelloServlet extends HttpServlet {
         salaryPerMonth.setSalary(salary);
         salaryPerMonth.setWorkdays_months(workdays_months);
         salaryPerMonth.setHour_income(hour_income);
-    }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String prettyJson = gson.toJson(salaryPerMonth);
 
-        /*ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        String prettyJson = mapper.writeValueAsString(salaryPerMonth);*/
-
-        response.setContentType("text/html");
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("<h1>" + 2001 + "</h1>");
-        out.println("</body></html>");
+        out.println(prettyJson);
+
+
     }
+
 
     public void destroy() {
     }

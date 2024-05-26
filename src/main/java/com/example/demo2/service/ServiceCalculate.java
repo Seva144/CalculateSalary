@@ -1,5 +1,6 @@
 package com.example.demo2.service;
 
+import com.example.demo2.util.MonthList;
 import com.groupstp.isdayoff.IsDayOff;
 import com.groupstp.isdayoff.IsDayOffDateType;
 import com.groupstp.isdayoff.enums.DayType;
@@ -20,34 +21,20 @@ public class ServiceCalculate {
 
     public ServiceCalculate(int year, String month, Double salary, IsDayOff isDayOff) {
         this.isDayOff = IsDayOff.Builder().build();
-        this.numMonth = new HashMap<>();
+        this.numMonth = new MonthList().getNumMonth();
         this.workdays_months = getAllWorkDays(year, month);
         this.hour_income = calculateSalaryPerMonth(salary, workdays_months);
-
-        numMonth.put("JANUARY", 0);
-        numMonth.put("FEBRUARY", 1);
-        numMonth.put("MARCH", 2);
-        numMonth.put("APRIL", 3);
-        numMonth.put("MAY", 4);
-        numMonth.put("JUNE", 5);
-        numMonth.put("JULY", 6);
-        numMonth.put("AUGUST", 7);
-        numMonth.put("SEPTEMBER", 8);
-        numMonth.put("OCTOBER", 9);
-        numMonth.put("NOVEMBER", 10);
-        numMonth.put("DECEMBER", 11);
     }
 
-
-    private int getAllWorkDays (int year, String month){
+    private int getAllWorkDays(int year, String month) {
         List<IsDayOffDateType> workedDay = (isDayOff.daysTypeByMonth(new Date(year, numMonth.get(month), 1))
                 .stream().filter(isDayOffDateType -> isDayOffDateType.getDayType().equals(DayType.WORKING_DAY))
                 .collect(Collectors.toList()));
-         return workedDay.size();
+        return workedDay.size();
     }
 
-    private double calculateSalaryPerMonth(double salary, int days){
-        double salaryPerDay = salary /days;
+    private double calculateSalaryPerMonth(double salary, int days) {
+        double salaryPerDay = salary / days;
         return Math.round(salaryPerDay * 100.0) / 100.0;
     }
 
